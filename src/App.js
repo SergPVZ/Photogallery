@@ -8,6 +8,7 @@ import ViewerManager from './components/ViewerManager';
 function App() {
     const [activeTab, setActiveTab] = useState('photographers');
 
+
     return (
         <div className="App">
             <header className="app-header">
