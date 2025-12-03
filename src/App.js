@@ -25,6 +25,7 @@ function App() {
                         className={activeTab === 'photos' ? 'active' : ''}
                         onClick={() => setActiveTab('photos')}
                     >
+
                         Фотографии
                     </button>
                     <button

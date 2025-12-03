@@ -36,6 +36,7 @@ export const photographerService = {
         console.log('Sending photographer data:', requestData);
         return api.post('/photographer/добавить нового фотографа', requestData);
     },
+
     update: (id, data) => {
         const requestData = {
             firstName: data.firstName,

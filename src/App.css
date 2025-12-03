@@ -239,6 +239,7 @@ input:focus, select:focus {
     padding: 1rem;
   }
 }
+
 /* Дополнительные стили для поиска по имени */
 .search-group {
   margin-bottom: 1.5rem;
