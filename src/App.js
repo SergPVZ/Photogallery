@@ -18,6 +18,7 @@ function App() {
                         className={activeTab === 'photographers' ? 'active' : ''}
                         onClick={() => setActiveTab('photographers')}
                     >
+
                         Фотографы
                     </button>
                     <button

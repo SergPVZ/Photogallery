@@ -392,4 +392,5 @@ input:disabled, button:disabled, select:disabled {
     flex-direction: column;
     gap: 0.5rem;
   }
+
 }
