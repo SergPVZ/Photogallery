@@ -1,4 +1,3 @@
-// src/components/PhotoManager.js
 import React, { useState } from 'react';
 import { photoService } from '../services/api';
 import './PhotoManager.css';

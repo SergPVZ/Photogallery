@@ -1,4 +1,3 @@
-// src/components/ViewerManager.js
 import React, { useState } from 'react';
 import { viewerService } from '../services/api';
 import './ViewerManager.css';

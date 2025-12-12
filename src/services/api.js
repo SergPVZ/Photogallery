@@ -9,7 +9,7 @@ const api = axios.create({
     },
 });
 
-// Вспомогательная функция для форматирования даты
+// форматирование даты
 const formatDateTime = (dateString) => {
     if (!dateString) return new Date().toISOString();
     return new Date(dateString).toISOString();
