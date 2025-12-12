@@ -68,6 +68,28 @@ export const photoService = {
     },
 };
 
+// Добавление и удаление фотографий
+export const photoFileService = {
+    upload: (formData) => {
+        return api.post('/api/photos/upload', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    },
+
+    getPhotosByPhotographer: (photographerId) => api.get(`/api/photos/photographer/${photographerId}`),
+
+    getAllPhotos: () => api.get('/api/photos/all'),
+
+    getPhotoById: (id) => api.get(`/api/photos/${id}`),
+
+    getPhotoContent: (id) => api.get(`/api/photos/files/${id}/content`),
+
+    deletePhoto: (id) => api.delete(`/api/photos/${id}`),
+    
+};
+
 // Пользователи
 export const viewerService = {
     getById: (id) => api.get(`/${id}`),

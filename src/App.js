@@ -1,9 +1,9 @@
-// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import PhotographerManager from './components/PhotographerManager';
 import PhotoManager from './components/PhotoManager';
 import ViewerManager from './components/ViewerManager';
+import PhotoUpload from './components/PhotoUpload';
 
 function App() {
     const [activeTab, setActiveTab] = useState('photographers');
@@ -29,9 +29,16 @@ function App() {
                         Фотографии
                     </button>
                     <button
+                        className={activeTab === 'upload' ? 'active' : ''}
+                        onClick={() => setActiveTab('upload')}
+                    >
+                        Загрузить фото
+                    </button>
+                    <button
                         className={activeTab === 'viewers' ? 'active' : ''}
                         onClick={() => setActiveTab('viewers')}
                     >
+
                         Пользователи
                     </button>
                 </nav>
@@ -40,6 +47,7 @@ function App() {
             <main className="app-main">
                 {activeTab === 'photographers' && <PhotographerManager />}
                 {activeTab === 'photos' && <PhotoManager />}
+                {activeTab === 'upload' && <PhotoUpload />}
                 {activeTab === 'viewers' && <ViewerManager />}
             </main>
         </div>
