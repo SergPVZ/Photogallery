@@ -12,4 +12,6 @@ public interface PhotographerRepository extends JpaRepository<Photographer, UUID
 
     List<Photographer> findByFirstNameAndLastName(String firstName, String lastName);
 
+    Photographer findByPhotographerLastName(String findByPhotographerLastName);
+
 }

@@ -2,8 +2,8 @@ server:
   port: 8080
 
 spring:
-  application:
-    name: photogallery
+#  application:
+#    name: photogallery
 
   datasource:
     url: jdbc:postgresql://localhost:5432/photogallery_db
@@ -21,6 +21,9 @@ spring:
 
   web:
     resources:
+      static-locations: "classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/"
+      file:
+        upload-dir: uploads
       add-mappings: false
 
 springdoc:
@@ -28,8 +31,10 @@ springdoc:
     path: /v3/api-docs
 
   swagger-ui:
-    path: /swagger-ui.html
+#    path: /swagger-ui.html
 
-
-
-
+    # Настройки для загрузки файлов
+#      file.upload-dir=uploads
+      spring.servlet.multipart.max-file-size=10MB
+      spring.servlet.multipart.max-request-size=10MB
+      server.url=http://localhost:8080

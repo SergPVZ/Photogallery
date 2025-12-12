@@ -5,14 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
-import ru.top_academy.photogallery.dto.PhotoResponseDTO;
 import ru.top_academy.photogallery.dto.PhotographerResponseDto;
-import ru.top_academy.photogallery.dto.ViewerResponseDTO;
 import ru.top_academy.photogallery.entity.Photographer;
 import ru.top_academy.photogallery.mapper.PhotographerMapper;
 import ru.top_academy.photogallery.repository.PhotographerRepository;
 import ru.top_academy.photogallery.request.PhotographerRequest;
-import ru.top_academy.photogallery.request.ViewerRequest;
 
 import java.util.List;
 import java.util.UUID;
@@ -56,8 +53,8 @@ public class PhotographerService {
 
         Photographer photographer = photographerRepository.findById(id).orElse(null);
 
-        photographer.setFirstName(request.getFirstName());
-        photographer.setLastName(request.getLastName());
+        photographer.setPhotographerFirstName(request.getFirstName());
+        photographer.setPhotographerLastName(request.getLastName());
         photographer.setEmail(request.getEmail());
         photographer.setPhone(request.getPhone());
         photographer.setAddress(request.getAddress());

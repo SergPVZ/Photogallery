@@ -4,10 +4,13 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.top_academy.photogallery.dto.PhotoFileResponseDTO;
 import ru.top_academy.photogallery.dto.PhotoResponseDTO;
+import ru.top_academy.photogallery.dto.PhotographerResponseDto;
 import ru.top_academy.photogallery.entity.Photo;
 import ru.top_academy.photogallery.service.PhotoService;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -33,6 +36,24 @@ public class PhotoController {
         PhotoResponseDTO photo = photoService.getPhoto(id);
 
         return ResponseEntity.ok(photo);
+
+    }
+
+    @GetMapping("/photographer/{photographerId}")
+    public ResponseEntity<List<PhotoResponseDTO>> getPhotoByPhotographer(@PathVariable String lastName) {
+
+        List<PhotoResponseDTO> photosByPhotographer = photoService.getPhotosByPhotographer(String lastName);
+
+        return ResponseEntity.ok(photosByPhotographer);
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<PhotographerResponseDto> deletePhoto(@PathVariable UUID id) {
+
+        photoService.deletePhoto(id);
+
+        return ResponseEntity.noContent().build();
 
     }
 

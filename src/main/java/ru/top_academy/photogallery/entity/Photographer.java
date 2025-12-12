@@ -29,10 +29,10 @@ public class Photographer {
     private UUID id;
 
     @Column
-    private String firstName;
+    private String photographerFirstName;
 
     @Column
-    private String lastName;
+    private String photographerLastName;
 
     @Column
     private String email;

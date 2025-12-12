@@ -1,9 +1,6 @@
 package ru.top_academy.photogallery.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -34,11 +31,21 @@ public class Photo {
     @Column
     private String genrePictures;
 
+//    @Column
+//    private String photographerLastName;
+
+//    @Column
+//    private String fileURL;
+
     @Column
     private LocalDateTime uploadDate;
 
     @Column
     @LastModifiedDate
     private LocalDateTime updateAt;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "photographer_id")
+    private Photographer photographerName;
 
 }
