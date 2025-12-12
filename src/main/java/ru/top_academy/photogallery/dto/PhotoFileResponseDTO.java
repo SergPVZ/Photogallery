@@ -35,7 +35,6 @@ public class PhotoFileResponseDTO {
     @Schema(description = "ID фотографа")
     private UUID photographerId;
 
-    // изменить на photographerLastName
     @Schema(description = "Имя фотографа")
     private String photographerName;
 

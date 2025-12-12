@@ -1,7 +1,6 @@
 package ru.top_academy.photogallery.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +25,7 @@ public class PhotoFileController {
                                 @RequestParam("file") MultipartFile file,
                                 @RequestParam("photographerId") UUID photographerId,
                                 @RequestParam(value = "description", required = false) String description,
-                                @RequestParam(value = "tags", required = false) String tags) {   // ещё можно дописать
+                                @RequestParam(value = "tags", required = false) String tags) {  // ещё добавить
 
         try {
             PhotoFileResponseDTO response = photoFileService.uploadPhoto(file, photographerId, description, tags);

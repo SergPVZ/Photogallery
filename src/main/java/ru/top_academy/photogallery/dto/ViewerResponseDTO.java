@@ -33,7 +33,6 @@ public class ViewerResponseDTO {
     private boolean isActive;
 
     @Schema(description = " /// ")
-//    @LastModifiedDate
     private LocalDateTime updatedAt;
 
 }

@@ -4,9 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.top_academy.photogallery.dto.PhotoResponseDTO;
 import ru.top_academy.photogallery.dto.PhotographerResponseDto;
-import ru.top_academy.photogallery.entity.Photographer;
 import ru.top_academy.photogallery.request.PhotographerRequest;
 import ru.top_academy.photogallery.service.PhotographerService;
 
@@ -50,7 +48,8 @@ public class PhotographerController {
     }
 
     @GetMapping("/получить фотографа по имени")
-    public ResponseEntity<List<PhotographerResponseDto>> getPhotoByName(@RequestParam String firstName, @RequestParam String lastName) {
+    public ResponseEntity<List<PhotographerResponseDto>> getPhotoByName(@RequestParam String firstName,
+                                                                        @RequestParam String lastName) {
 
         List<PhotographerResponseDto> photographer = photographerService.getPhotoByName(firstName, lastName);
 

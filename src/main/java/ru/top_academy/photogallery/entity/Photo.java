@@ -31,12 +31,6 @@ public class Photo {
     @Column
     private String genrePictures;
 
-//    @Column
-//    private String photographerLastName;
-
-//    @Column
-//    private String fileURL;
-
     @Column
     private LocalDateTime uploadDate;
 

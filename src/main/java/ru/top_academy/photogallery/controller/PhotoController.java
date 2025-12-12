@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.top_academy.photogallery.dto.PhotoFileResponseDTO;
 import ru.top_academy.photogallery.dto.PhotoResponseDTO;
 import ru.top_academy.photogallery.dto.PhotographerResponseDto;
 import ru.top_academy.photogallery.entity.Photo;
@@ -22,7 +21,7 @@ public class PhotoController {
     private PhotoService photoService;
 
     @PostMapping("/добавить новую фотографию")
-    public ResponseEntity<PhotoResponseDTO> createPhoto(@Valid  @RequestBody Photo photo, @RequestParam UUID photographerId) {
+    public ResponseEntity<PhotoResponseDTO> createPhoto(@Valid @RequestBody Photo photo, @RequestParam UUID photographerId) {
 
         PhotoResponseDTO photoResponseDTO = photoService.downloadNewPhoto(photo, photographerId);
 
@@ -30,7 +29,7 @@ public class PhotoController {
 
     }
 
-    @GetMapping("/{id} получить фотографию по id")
+    @GetMapping("/{id} get photo by id")
     public ResponseEntity<PhotoResponseDTO> getPhotoById(@PathVariable UUID id) {
 
         PhotoResponseDTO photo = photoService.getPhoto(id);

@@ -18,7 +18,7 @@ import java.util.UUID;
 @Schema(description = "DTO запроса создания пользователей сайта")
 public class ViewerRequest {
 
-    @Schema(description = "Идентификатор пользователя")     // @Id
+    @Schema(description = "Идентификатор пользователя")
     private UUID id;
 
     @Schema(description = "Имя пользователя")

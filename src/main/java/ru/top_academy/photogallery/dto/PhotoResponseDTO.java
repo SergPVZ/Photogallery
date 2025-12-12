@@ -27,9 +27,6 @@ public class PhotoResponseDTO {
     @Schema(description = "Фамилия фотографа")
     private String photographerLastName;
 
-//    @Schema(description = "URL для доступа к файлу")
-//    private String fileUrl;
-
     @Schema(description = "Дата и время загрузки на сайт")
     private LocalDateTime uploadDate;
 

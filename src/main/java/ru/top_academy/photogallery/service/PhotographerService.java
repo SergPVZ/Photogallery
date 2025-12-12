@@ -28,7 +28,7 @@ public class PhotographerService {
 
     @Transactional(rollbackFor = Exception.class)
     public PhotographerResponseDto createPhotographer(PhotographerRequest request) {
-//
+
         Photographer photographer = new Photographer(UUID.randomUUID(),
                 request.getFirstName(), request.getLastName(),
                 request.getEmail(), request.getPhone(),
@@ -38,13 +38,6 @@ public class PhotographerService {
         photographerRepository.saveAndFlush(photographer);
 
         return photographerMapper.mapToPhotographerResponseDto(photographer);
-
-//        return new PhotographerResponseDto(UUID.randomUUID(),
-//                photographer.getFirstName(), photographer.getLastName(),
-//                photographer.getEmail(), photographer.getPhone(),
-//                photographer.getAddress(), photographer.getCity(),
-//                photographer.getRegistrationDate(), photographer.isActive(),
-//                photographer.getUpdatedAt());
 
     }
 

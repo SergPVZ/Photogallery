@@ -37,14 +37,11 @@ public class PhotographerResponseDto {
 
     @Schema(description ="Дата регистрации на сайте")
     private LocalDateTime registrationDate;
-//
+
     @Schema(description = "Наличие активности фотографа")
     private boolean isActive;
 
     @Schema(description = " /// ")
-//    @LastModifiedDate
     private LocalDateTime updatedAt;
 
-//    public PhotographerResponseDto(UUID id, String firstName, String lastName, String email, String phone, String address, String city, LocalDateTime registrationDate, boolean active, LocalDateTime updatedAt) {
-//    }
 }

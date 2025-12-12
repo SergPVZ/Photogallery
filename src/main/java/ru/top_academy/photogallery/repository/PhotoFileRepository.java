@@ -12,10 +12,6 @@ public interface PhotoFileRepository extends JpaRepository<PhotoFile, UUID> {
 
     List<PhotoFile> findByPhotographerId(UUID photographerId);
 
-    List<PhotoFile> findByTagsContains(String tag);
-
     List<PhotoFile> findByIsActiveTrue();
-
-    List<PhotoFile> findByIsActive(boolean isActive);
 
 }

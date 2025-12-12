@@ -42,11 +42,9 @@ public class PhotoFileService {
     public PhotoFileResponseDTO uploadPhoto(MultipartFile file, UUID photographerId,
                                             String description, String tags) throws IOException {
 
-        // Проверяем существование фотографа
         Photographer photographer = photographerRepository.findById(photographerId)
                 .orElseThrow(() -> new RuntimeException("Фотограф не найден"));
 
-        // Создаем директорию если не существует
         Path uploadPath = Paths.get(uploadDir);
 
         PhotoFile photoFile = null;  // убрать нафиг!!!!!
@@ -56,7 +54,6 @@ public class PhotoFileService {
             Files.createDirectories(uploadPath);
         }
 
-        // Создаём оригинальное имя файла
         String originalPhotoFileName = StringUtils.cleanPath(file.getOriginalFilename());
         String fileExtension = "";
 
@@ -66,12 +63,10 @@ public class PhotoFileService {
 
         String photoName = UUID.randomUUID().toString() + fileExtension;
 
-        // Сохраняем файл
         Path filePath = uploadPath.resolve(photoName);
 
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
-        // Сохраняем информацию в БД
         photoFile = new PhotoFile();
         photoFile.setId(UUID.randomUUID());
         photoFile.setOriginalFilename(originalPhotoFileName);
@@ -120,38 +115,10 @@ public class PhotoFileService {
         PhotoFile photoFile = photoFileRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Фото не найдено"));
 
-        // Удаляем физический файл
         Files.deleteIfExists(Paths.get(photoFile.getFilePath()));
 
-        // Удаляем запись из БД
         photoFileRepository.delete(photoFile);
 
     }
-
-    public byte[] getPhotoContent(UUID id) throws IOException {
-
-        PhotoFile photoFile = photoFileRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Фото не найдено"));
-
-        return Files.readAllBytes(Paths.get(photoFile.getFilePath()));
-
-    }
-
-    public List<PhotoFileResponseDTO> getAllActivePhotos() {
-        return photoFileRepository.findByIsActiveTrue()  // ✅ Теперь работает
-                .stream()
-                .map(photoFileMapper::toDto)
-                .collect(Collectors.toList());
-    }
-
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> deletePhoto(@PathVariable UUID id) {
-//        try {
-//            photoFileService.deletePhoto(id);
-//            return ResponseEntity.noContent().build();
-//        } catch (IOException e) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-//        }
-//    }
 
 }
