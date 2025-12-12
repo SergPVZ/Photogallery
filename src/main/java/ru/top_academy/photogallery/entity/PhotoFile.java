@@ -34,6 +34,9 @@ public class PhotoFile {
     @Column(nullable = false)
     private String filePath;
 
+    @Column(name = "relative_patch")
+    private String relativePath;
+
     @Column
     private String description;
 
@@ -49,5 +52,4 @@ public class PhotoFile {
 
     @Column(name = "is_active", nullable = false)
     private boolean isActive = true;
-
 }

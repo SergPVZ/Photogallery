@@ -16,7 +16,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional(readOnly = true)  //  попробовать импортировать "Transaction-api"
+@Transactional(readOnly = true)
 @Validated
 public class PhotographerService {
 
@@ -41,7 +41,7 @@ public class PhotographerService {
 
     }
 
-        @Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public PhotographerResponseDto updatePhotographer(UUID id, @Valid PhotographerRequest request) {
 
         Photographer photographer = photographerRepository.findById(id).orElse(null);
