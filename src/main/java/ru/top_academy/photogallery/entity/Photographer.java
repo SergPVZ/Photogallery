@@ -28,11 +28,11 @@ public class Photographer {
     @Column
     private UUID id;
 
-    @Column
-    private String photographerFirstName;
+    @Column(name = "firstName")
+    private String firstName;
 
-    @Column
-    private String photographerLastName;
+    @Column(name = "lastName")
+    private String lastName;
 
     @Column
     private String email;

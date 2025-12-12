@@ -22,9 +22,9 @@ public class PhotoController {
     private PhotoService photoService;
 
     @PostMapping("/добавить новую фотографию")
-    public ResponseEntity<PhotoResponseDTO> createPhoto(@Valid  @RequestBody Photo photo) {
+    public ResponseEntity<PhotoResponseDTO> createPhoto(@Valid  @RequestBody Photo photo, @RequestParam UUID photographerId) {
 
-        PhotoResponseDTO photoResponseDTO = photoService.downloadNewPhoto(photo);
+        PhotoResponseDTO photoResponseDTO = photoService.downloadNewPhoto(photo, photographerId);
 
         return ResponseEntity.ok(photoResponseDTO);
 
@@ -40,9 +40,9 @@ public class PhotoController {
     }
 
     @GetMapping("/photographer/{photographerId}")
-    public ResponseEntity<List<PhotoResponseDTO>> getPhotoByPhotographer(@PathVariable String lastName) {
+    public ResponseEntity<List<PhotoResponseDTO>> getPhotoByPhotographer(@PathVariable UUID photographerId) {
 
-        List<PhotoResponseDTO> photosByPhotographer = photoService.getPhotosByPhotographer(String lastName);
+        List<PhotoResponseDTO> photosByPhotographer = photoService.getPhotosByPhotographer(photographerId);
 
         return ResponseEntity.ok(photosByPhotographer);
 

@@ -10,7 +10,7 @@ public class PhotographerMapper {
     public PhotographerResponseDto mapToPhotographerResponseDto(Photographer photographer) {
 
         return new PhotographerResponseDto(photographer.getId(),
-                photographer.getPhotographerFirstName(), photographer.getPhotographerLastName(),
+                photographer.getFirstName(), photographer.getLastName(),
                 photographer.getEmail(), photographer.getPhone(),
                 photographer.getAddress(), photographer.getCity(),
                 photographer.getRegistrationDate(), photographer.isActive(), photographer.getUpdatedAt());

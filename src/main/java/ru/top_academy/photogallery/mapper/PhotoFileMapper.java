@@ -26,8 +26,8 @@ public class PhotoFileMapper {
         dto.setDescription(photoFile.getDescription());
         if (photoFile.getPhotographer() != null) {
             dto.setPhotographerId(photoFile.getPhotographer().getId());
-            dto.setPhotographerName(photoFile.getPhotographer().getPhotographerFirstName() + " " +
-                                    photoFile.getPhotographer().getPhotographerLastName());
+            dto.setPhotographerName(photoFile.getPhotographer().getFirstName() + " " +
+                                    photoFile.getPhotographer().getLastName());
         }
         dto.setUploadDate(photoFile.getUploadDate());
         dto.setTags(photoFile.getTags());

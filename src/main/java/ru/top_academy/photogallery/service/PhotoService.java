@@ -32,13 +32,13 @@ public class PhotoService {
     private PhotographerRepository photographerRepository;
 
     @Transactional(rollbackFor = Exception.class)
-    public PhotoResponseDTO downloadNewPhoto(Photo photo) {
-        Photographer photographer = photographerRepository.findByPhotographerLastName(findByPhotographerLastName));
+    public PhotoResponseDTO downloadNewPhoto(Photo photo, UUID photographerId) {
 
-        Photo photo = new Photo(UUID.randomUUID(), photo.getName(), photo.getGenrePictures(),
-                photo.getPhotographerName(),
-                photo.getUploadDate(), photo.getUpdateAt());
+        Photographer photographer = photographerRepository.findById(photographerId)
+                .orElseThrow(() -> new RuntimeException("Фотограф не найден"));
 
+        photo.setId(UUID.randomUUID());
+        photo.setPhotographer(photographer);
         photoRepository.saveAndFlush(photo);
 
         return photoMapper.mapToPhotoResponseDTO(photo);
@@ -53,8 +53,8 @@ public class PhotoService {
 
     }
 
-    public List<PhotoResponseDTO> getPhotosByPhotographer(String lastName) {
-        return photoRepository.findByPhotographerLastName(lastName)
+    public List<PhotoResponseDTO> getPhotosByPhotographer(UUID photographerId) {
+        return photoRepository.findByPhotographerId(photographerId)
                 .stream()
                 .map(photoMapper::mapToPhotoResponseDTO)
                 .collect(Collectors.toList());

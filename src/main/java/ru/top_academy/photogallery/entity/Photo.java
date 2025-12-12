@@ -46,6 +46,6 @@ public class Photo {
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "photographer_id")
-    private Photographer photographerName;
+    private Photographer photographer;
 
 }

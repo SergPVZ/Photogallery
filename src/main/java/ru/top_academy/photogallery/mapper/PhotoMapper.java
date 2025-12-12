@@ -14,7 +14,7 @@ public class PhotoMapper {
 
     public String mapPhotographerToString(Photographer photographer) {
 
-        return photographer.getPhotographerFirstName() + " " + photographer.getPhotographerLastName();
+        return photographer.getFirstName() + " " + photographer.getLastName();
 
     }
 
@@ -53,8 +53,8 @@ public class PhotoMapper {
 //        photoResponseDTO.setFileUrl(serverUrl + "/api/photos/files/" + photo.getId() + "/content");
         photoResponseDTO.setUploadDate(photo.getUploadDate());
         photoResponseDTO.setUpdateAt(photo.getUpdateAt());
-        if (photo.getPhotographerName() != null) {
-            Photographer photographer = photo.getPhotographerName();
+        if (photo.getPhotographer() != null) {
+            Photographer photographer = photo.getPhotographer();
         }
 
         return photoResponseDTO;

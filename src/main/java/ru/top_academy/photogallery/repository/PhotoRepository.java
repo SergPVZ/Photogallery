@@ -13,12 +13,5 @@ import java.util.UUID;
 @Repository
 public interface PhotoRepository extends JpaRepository<Photo, UUID> {
 
-    // Через JPQL запрос
-//    @Query("SELECT p FROM Photo p JOIN p.photographer ph WHERE ph.lastName = :lastName")
-//    List<Photo> findByPhotographerLastName(@Param("lastName") String lastName);
-
-    // Или если нужно по ID фотографа
-    @Query("SELECT p FROM Photo p WHERE p.photographer.id = :photographerId")
-    List<Photo> findByPhotographerId(@Param("photographerId") UUID photographerId);
-
+List<Photo> findByPhotographerId(UUID photographerId);
 }

@@ -53,8 +53,8 @@ public class PhotographerService {
 
         Photographer photographer = photographerRepository.findById(id).orElse(null);
 
-        photographer.setPhotographerFirstName(request.getFirstName());
-        photographer.setPhotographerLastName(request.getLastName());
+        photographer.setFirstName(request.getFirstName());
+        photographer.setLastName(request.getLastName());
         photographer.setEmail(request.getEmail());
         photographer.setPhone(request.getPhone());
         photographer.setAddress(request.getAddress());
