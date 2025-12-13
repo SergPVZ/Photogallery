@@ -200,7 +200,7 @@ const PhotoUpload = () => {
                             type="text"
                             value={uploadData.tags}
                             onChange={(e) => setUploadData({...uploadData, tags: e.target.value})}
-                            placeholder="пейзаж, лето, стритфото, зима, натюрморт"
+                            placeholder="портрет, пейзаж, натюрморт, лето, стритфото, зима, макросьёмка, репортаж"
                         />
                     </div>
 

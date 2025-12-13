@@ -63,7 +63,9 @@ const PhotoManager = () => {
                             <option value="Портрет">Портрет</option>
                             <option value="Пейзаж">Пейзаж</option>
                             <option value="Натюрморт">Натюрморт</option>
-                            <option value="Архитектура">Архитектура</option>
+                            <option value="Лето">Лето</option>
+                            <option value="Стритфото">Стритфото</option>
+                            <option value="Зима">Зима</option>
                             <option value="Макросъемка">Макросъемка</option>
                             <option value="Репортаж">Репортаж</option>
                         </select>
